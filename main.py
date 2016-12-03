@@ -101,13 +101,18 @@ def get_results(username, password):
 
     return subjects
 
+sent_subjects = []
+
 def send_email_if_released(subjects, email):
     sent = False
     for k, v in subjects.items():
+        if v['subject'] in sent_subjects:
+            continue
         if v['grade'] != 'NA':
             send_email(email, subject, marks, grade)
             print('sending {} to {}'.format(v['subject'], email))
             sent = True
+            sent_subjects.append(v['subject'])
     if not sent:
         print('.', end='')
         sys.stdout.flush()
