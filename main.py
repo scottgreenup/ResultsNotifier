@@ -19,7 +19,7 @@ def send_email(to, subject, marks, grade):
     conn.ehlo()
     conn.login(
         'universityofsydneyresults@mail.com',
-        'Utl#OteyoF*^UyUh%qm&u0JKx'
+        'password'
     )
 
     msg = MIMEMultipart()
